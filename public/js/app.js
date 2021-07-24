@@ -13,9 +13,9 @@ const messageOne = document.querySelector('#message-1')
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    const address = search.value
+    const location = search.value
 
-    fetch('/weather?address=' + address).then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error
