@@ -11,6 +11,10 @@ console.log(path.join(__dirname,'../public'))
 
 const app = express()
 
+// Port is equal to heroku port if it exists, otherwise port will be local
+
+const port = process.env.PORT || 3000
+
 // Define paths for Express config
 
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -96,8 +100,8 @@ app.get('*', (req,res) => {
 // Start server up; have it listen on a specific port
 // 3000 is for Local development environment
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port' + port)
 }) 
 
 // Note that node process is never going to be closed unless we stop it, since its job is to stay up and running to process requests
